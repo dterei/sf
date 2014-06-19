@@ -1059,7 +1059,7 @@ Example test_nat_to_bin2: bin_to_nat (nat_to_bin 631) = 631.
 Example test_bin_to_nat7: bin_to_nat (bincr (nat_to_bin 783)) = 784.
   Proof. reflexivity. Qed.
 
-Theorem bincr_eq_nat_plus_1:
+(* Theorem bincr_eq_nat_plus_1:
   forall (b : bin),
   forall (n : nat),
   bin_to_nat b = n ->
@@ -1069,7 +1069,7 @@ Proof.
   destruct b.
   simpl. intros H. rewrite -> H. reflexivity.
   simpl. intros H. rewrite -> H. reflexivity.
-  admit.
+  admit. *)
 
   (* I think I haven't learnt enough tools to prove yet! *)
 
@@ -1142,6 +1142,7 @@ Fixpoint plus' (n : nat) (m : nat) : nat :=
 Fixpoint nat_even (n : nat) : bool :=
   match n with
     | 0 => true
+
     | S n' => negb (nat_even n')
   end.
 
@@ -1157,12 +1158,12 @@ Example test_nat_even2: nat_even 8 = true.
    This relies on a more semantic understanding on nat (or at least
    bringing in the definition of nat_even) which is beyond the simple
    check. *)
-Fixpoint nat_bad_fix (n : nat) : nat :=
+(* Fixpoint nat_bad_fix (n : nat) : nat :=
   match (nat_even n, n) with
     | (_, 0) => 0
     | (true, S n') => nat_bad_fix n'
     | (false, S n') => nat_bad_fix (S (S n'))
-  end.
+  end. *)
 
 (** [] *)
 
